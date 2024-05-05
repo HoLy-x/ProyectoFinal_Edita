@@ -1,28 +1,15 @@
+import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.List;
 
 public class SistemaInventario {
-    private static final String USUARIO_ADMIN = "edita";
-    private static final String CONTRASENA_ADMIN = "aitana";
 
-    private static void iniciarSesion(Scanner scanner) {
-        while (true) {
-            System.out.print("Ingrese el nombre de usuario: ");
-            String nombreUsuarioIngresado = scanner.nextLine();
+    // Lista para almacenar las blusas disponibles y carrito
+    private static List<String[]> blusasDisponibles = new ArrayList<>();
+    private static List<String[]> carrito = new ArrayList<>();
 
-            System.out.print("Ingrese la contraseña: ");
-            String contrasenaIngresada = scanner.nextLine();
-
-            if (nombreUsuarioIngresado.equals(USUARIO_ADMIN) && contrasenaIngresada.equals(CONTRASENA_ADMIN)) {
-                System.out.println("¡Inicio de sesión del administrador exitoso!");
-                break;
-            } else {
-                System.out.println("Nombre de usuario o contraseña incorrectos. Por favor, inténtelo de nuevo.");
-            }
-        }
-    }
-
-
-    private static void recopilarInformacionCliente(Scanner scanner) {
+    //cliente
+    private static String[] recopilarInformacionCliente(Scanner scanner) {
         System.out.println("Proporcione la siguiente información:");
 
         System.out.print("Nombre completo: ");
@@ -47,32 +34,8 @@ public class SistemaInventario {
         } while (direccion.isEmpty());
 
         System.out.println("Gracias, " + nombreCompleto + ", por proporcionar la información.");
-        System.out.println("Tu DNI: " + dni);
-        System.out.println("Tu dirección de entrega: " + direccion);
+
+        return new String[]{nombreCompleto, dni, direccion};
     }
 
-
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Bienvenido a tienda Edita");
-
-        String tipoUsuario;
-        do {
-            System.out.println("¿Eres cliente o administrador? (cliente/admin): ");
-            tipoUsuario = scanner.nextLine();
-            if (!tipoUsuario.equalsIgnoreCase("cliente") && !tipoUsuario.equalsIgnoreCase("admin")) {
-                System.out.println("Opción inválida. Por favor, indique si es cliente o administrador.");
-            }
-        } while (!tipoUsuario.equalsIgnoreCase("cliente") && !tipoUsuario.equalsIgnoreCase("admin"));
-
-        if (tipoUsuario.equalsIgnoreCase("cliente")) {
-            recopilarInformacionCliente(scanner);
-        } else if (tipoUsuario.equalsIgnoreCase("admin")) {
-            System.out.println("Inicio de sesión del administrador:");
-            iniciarSesion(scanner);
-        }
-
-        scanner.close();
-    }
 }
