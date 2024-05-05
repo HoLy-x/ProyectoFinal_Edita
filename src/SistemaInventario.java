@@ -37,4 +37,16 @@ public class SistemaInventario {
 
         return new String[]{nombreCompleto, dni, direccion};
     }
+
+    //mostrar productos disponibles:
+    private static void mostrarProductosDispo() {
+        System.out.println("Productos disponibles:");
+
+        for (int i = 0; i < blusasDisponibles.size(); i++) {
+            String[] blusa = blusasDisponibles.get(i);
+            System.out.println((i + 1) + ". Talla: " + blusa[0] + ", Color: " + blusa[1] + ", Modelo: " + blusa[2] + ", Precio: $" + blusa[3] + ", Cantidad disponible: " + blusa[4]);
+        }
+    }
+
+
 }
