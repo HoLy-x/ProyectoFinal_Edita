@@ -37,5 +37,4 @@ public class SistemaInventario {
 
         return new String[]{nombreCompleto, dni, direccion};
     }
-
 }
