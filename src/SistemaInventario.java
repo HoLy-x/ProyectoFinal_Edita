@@ -47,6 +47,39 @@ public class SistemaInventario {
             System.out.println((i + 1) + ". Talla: " + blusa[0] + ", Color: " + blusa[1] + ", Modelo: " + blusa[2] + ", Precio: $" + blusa[3] + ", Cantidad disponible: " + blusa[4]);
         }
     }
+    // Método para agregar productos al carrito
+    private static void agregarAlCarrito(Scanner scanner) {
+        do {
+            mostrarProductosDispo();
+            System.out.print("Ingrese el número del producto que desea agregar al carrito (o '0' para terminar): ");
+            int opcion = Integer.parseInt(scanner.nextLine());
+
+            if (opcion == 0) {
+                break;
+            }
+
+            if (opcion < 1 || opcion > blusasDisponibles.size()) {
+                System.out.println("Opción inválida.");
+                continue;
+            }
+
+            String[] productoSeleccionado = blusasDisponibles.get(opcion - 1);
+
+
+            
+            if (Integer.parseInt(productoSeleccionado[4]) <= 0) {
+                System.out.println("Lo sentimos, el producto seleccionado no está disponible en este momento.");
+                continue;
+            }
+
+           
+            int newStock = Integer.parseInt(productoSeleccionado[4]) - 1;
+            productoSeleccionado[4] = String.valueOf(newStock);
+            carrito.add(productoSeleccionado);
+            System.out.println("Producto agregado al carrito: " + productoSeleccionado[2]);
+        } while (true);
+    }
 
 
 }
+
