@@ -141,6 +141,20 @@ public class SistemaInventario {
         blusasDisponibles.add(new String[]{"L", "Azul", "Manga corta", "29.99", "8"});
         blusasDisponibles.add(new String[]{"L", "Fuxia", "Manga corta", "29.99", "8"});
         blusasDisponibles.add(new String[]{"L", "Blanco", "Manga corta", "29.99","8"});
+
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Bienvenido a la tienda Edita");
+        String[] datosCliente = recopilarInformacionCliente(scanner);
+
+        // Agrega productos al carrito
+        System.out.println("\n--- Carrito de compras ---");
+        agregarAlCarrito(scanner);
+
+        // Genera el recibo de compra
+        generarRecibo(datosCliente);
+
 }
 
 }
