@@ -59,7 +59,7 @@ public class SistemaInventario {
             }
 
             if (opcion < 1 || opcion > blusasDisponibles.size()) {
-                System.out.println("Opción inválida.");
+                System.out.println("\nOpción inválida.");
                 continue;
             }
 
@@ -68,7 +68,7 @@ public class SistemaInventario {
 
 
             if (Integer.parseInt(productoSeleccionado[4]) <= 0) {
-                System.out.println("Lo sentimos, el producto seleccionado no está disponible en este momento.");
+                System.out.println("\nLo sentimos, el producto seleccionado no está disponible en este momento.");
                 continue;
             }
 
@@ -96,7 +96,7 @@ public class SistemaInventario {
             total += Double.parseDouble(producto[3]);
         }
 
-        System.out.println("\nTotal a pagar: $" + total);
+        System.out.println("\nTotal a pagar: $" + String.format("%.2f", total));
         System.out.println("--- ¡Gracias por su compra! ---");
     }
 
