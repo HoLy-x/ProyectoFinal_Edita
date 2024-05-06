@@ -141,7 +141,6 @@ public class SistemaInventario {
         blusasDisponibles.add(new String[]{"L", "Azul", "Manga corta", "29.99", "8"});
         blusasDisponibles.add(new String[]{"L", "Fuxia", "Manga corta", "29.99", "8"});
         blusasDisponibles.add(new String[]{"L", "Blanco", "Manga corta", "29.99","8"});
-
 }
 
 }
