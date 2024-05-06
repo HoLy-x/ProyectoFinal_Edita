@@ -66,20 +66,82 @@ public class SistemaInventario {
             String[] productoSeleccionado = blusasDisponibles.get(opcion - 1);
 
 
-            
+
             if (Integer.parseInt(productoSeleccionado[4]) <= 0) {
                 System.out.println("Lo sentimos, el producto seleccionado no está disponible en este momento.");
                 continue;
             }
 
-           
+
             int newStock = Integer.parseInt(productoSeleccionado[4]) - 1;
             productoSeleccionado[4] = String.valueOf(newStock);
             carrito.add(productoSeleccionado);
             System.out.println("Producto agregado al carrito: " + productoSeleccionado[2]);
         } while (true);
     }
+    private static void generarRecibo(String[] datosCliente) {
+        String nombreCompleto = datosCliente[0];
+        String dni = datosCliente[1];
+        String direccion = datosCliente[2];
 
+        System.out.println("\n--- RECIBO ---");
+        System.out.println("Cliente: " + nombreCompleto);
+        System.out.println("DNI: " + dni);
+        System.out.println("Dirección de entrega: " + direccion);
+        System.out.println("\nProductos comprados:");
+
+        double total = 0;
+        for (String[] producto : carrito) {
+            System.out.println("Talla: " + producto[0] + ", Color: " + producto[1] + ", Modelo: " + producto[2] + ", Precio: $" + producto[3]);
+            total += Double.parseDouble(producto[3]);
+        }
+
+        System.out.println("\nTotal a pagar: $" + total);
+        System.out.println("--- ¡Gracias por su compra! ---");
+    }
+
+
+    public static void main(String[] args) {
+
+        // Blusa escote Espalda
+        blusasDisponibles.add(new String[]{"S", "Azul", "Escote de Espalda", "25.99", "10"});
+        blusasDisponibles.add(new String[]{"S", "Fuxia", "Escote de Espalda", "25.99", "10"});
+        blusasDisponibles.add(new String[]{"S", "Blanco", "Escote de Espalda", "25.99", "10"});
+
+        blusasDisponibles.add(new String[]{"M", "Azul", "Escote de Espalda", "25.99", "10"});
+        blusasDisponibles.add(new String[]{"M", "Fuxia", "Escote de Espalda", "25.99", "10"});
+        blusasDisponibles.add(new String[]{"M", "Blanco", "Escote de Espalda", "25.99", "10"});
+
+        blusasDisponibles.add(new String[]{"L", "Azul", "Escote de Espalda", "25.99", "10"});
+        blusasDisponibles.add(new String[]{"L", "Fuxia", "Escote de Espalda", "25.99", "10"});
+        blusasDisponibles.add(new String[]{"L", "Blanco", "Escote de Espalda", "25.99", "10"});
+
+        // Blusa Sin Mangas
+        blusasDisponibles.add(new String[]{"S", "Azul", "Sin mangas", "19.99", "15"});
+        blusasDisponibles.add(new String[]{"S", "Fuxia", "Sin mangas", "19.99", "15"});
+        blusasDisponibles.add(new String[]{"S", "Blanco", "Sin mangas", "19.99", "15"});
+
+        blusasDisponibles.add(new String[]{"M", "Azul", "Sin mangas", "19.99", "15"});
+        blusasDisponibles.add(new String[]{"M", "Fuxia", "Sin mangas", "19.99", "15"});
+        blusasDisponibles.add(new String[]{"M", "Blanco", "Sin mangas", "19.99", "15"});
+
+        blusasDisponibles.add(new String[]{"L", "Azul", "Sin mangas", "19.99", "15"});
+        blusasDisponibles.add(new String[]{"L", "Fuxia", "Sin mangas", "19.99", "15"});
+        blusasDisponibles.add(new String[]{"L", "Blanco", "Sin mangas", "19.99", "15"});
+
+        //blusas Manga corta
+        blusasDisponibles.add(new String[]{"S", "Azul", "Manga corta", "29.99", "8"});
+        blusasDisponibles.add(new String[]{"S", "Fuxia", "Manga corta", "29.99", "8"});
+        blusasDisponibles.add(new String[]{"S", "Blanco", "Manga corta", "29.99", "8"});
+
+        blusasDisponibles.add(new String[]{"M", "Azul", "Manga corta", "29.99", "8"});
+        blusasDisponibles.add(new String[]{"M", "Fuxia", "Manga corta", "29.99", "8"});
+        blusasDisponibles.add(new String[]{"M", "Blanco", "Manga corta", "29.99", "8"});
+
+        blusasDisponibles.add(new String[]{"L", "Azul", "Manga corta", "29.99", "8"});
+        blusasDisponibles.add(new String[]{"L", "Fuxia", "Manga corta", "29.99", "8"});
+        blusasDisponibles.add(new String[]{"L", "Blanco", "Manga corta", "29.99","8"});
 
 }
 
+}
